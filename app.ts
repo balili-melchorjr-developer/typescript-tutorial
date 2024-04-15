@@ -1,26 +1,19 @@
-enum Access {
-    ADMIN,
-    MODERATOR,
-    USER
+type PinoyFreeCoder = number | string
+
+function addOrCombine(data1 : PinoyFreeCoder, data2 : PinoyFreeCoder){
+    let result: PinoyFreeCoder
+    if (typeof data1 === 'number' && typeof data2 === 'number'){
+        result = data1 + data2
+    } else {
+        result = data1.toString() + data2.toString()
+    }
+
+    return result
 }
 
-const student: {
-    name: string
-    age: number
-    gender?: string
-    interest: string[]
-    access: [number, string] // Tuple: not always use in real world scenario
-    accessType: Access
-} = {
-    name: 'Juan',
-    age: 19,
-    interest: ["Basketball", "Reading"],
-    access: [1, "admin"],
-    accessType: Access.MODERATOR
-}
 
-if(student.accessType === 1) {
-    console.log("is admin")
-}
+const combineNumbers = addOrCombine(3, 4)
+console.log(combineNumbers)
 
-console.log(student)
+const combineString = addOrCombine("Pinoy", "FreeCoder")
+console.log(combineString)
