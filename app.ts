@@ -1,15 +1,26 @@
-function addFunction(num1 : number, num2 : number, showResult : boolean, message : string){
-    const result = num1 + num2
-    if(showResult) {
-        console.log(`${message} ${result}`)
-    } else {
-        console.log("Show result is false")
-    }
+enum Access {
+    ADMIN,
+    MODERATOR,
+    USER
 }
 
-const number1 = 5
-const number2 = 2.4
-const showResult = true
-const message = 'Sum is : '
+const student: {
+    name: string
+    age: number
+    gender?: string
+    interest: string[]
+    access: [number, string] // Tuple: not always use in real world scenario
+    accessType: Access
+} = {
+    name: 'Juan',
+    age: 19,
+    interest: ["Basketball", "Reading"],
+    access: [1, "admin"],
+    accessType: Access.MODERATOR
+}
 
-console.log(addFunction(number1, number2, showResult, message))
+if(student.accessType === 1) {
+    console.log("is admin")
+}
+
+console.log(student)
