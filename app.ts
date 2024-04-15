@@ -1,14 +1,23 @@
-function sum(num1 : number, num2 : number) {
-    return num1 + num2
+let userData: unknown
+let trueData: string
+
+userData = 'now'
+userData = 5
+
+if(typeof userData === "string") {
+    trueData = userData
 }
 
-function getResult(num : number) : string {
-    let resultString = `Result: ${num}`
-    return resultString
+
+function generateErrorCode(description : string, errorCode: number) : never{
+    throw {message : description, code: errorCode}
 }
 
-let AddOrGetResult: (num1 : number, num2 : number) => number
-let GetResultFunction: (num : number) => string
+function infiniteLoop(): never {
+    while(true) {
 
-AddOrGetResult = sum
-GetResultFunction = getResult
+    }
+}
+
+generateErrorCode("Error happened", 502)
+infiniteLoop()
